@@ -14,8 +14,8 @@ CTLText.prototype = {
                 iFontSize--;
                    
                 this._oText.font = iFontSize+"px "+this._szFont;
-                this._oText.lineHeight = Math.round(iFontSize*this._fLineHeightFactor);   
-                
+                this._oText.lineHeight = Math.round(iFontSize*this._fLineHeightFactor);
+
                 this.__updateY();        
                 this.__verticalAlign();                                
          
@@ -60,7 +60,7 @@ CTLText.prototype = {
         this._oText.textBaseline = "middle";
         this._oText.lineHeight = Math.round(this._iFontSize*this._fLineHeightFactor);
         this._oText.textAlign = this._szAlign;
-        
+        this._oText.shadow = new createjs.Shadow("#141212", 2,2,3);
         
         if ( this._bMultiline ){
             this._oText.lineWidth = this._iWidth - (this._iPaddingH*2);

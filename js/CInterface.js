@@ -7,6 +7,7 @@ function CInterface(iCurBet,iTotBet,iMoney){
     
     var _oButExit;
     var _oSpinBut;
+    var _oPayText;
     var _oInfoBut;
     var _oAddLineBut;
     var _oAudioToggle;
@@ -56,9 +57,8 @@ function CInterface(iCurBet,iTotBet,iMoney){
         }
         
         oSprite = s_oSpriteLibrary.getSprite('spin_but');
-        _oSpinBut = new CTextButton(1090 + (oSprite.width/2),CANVAS_HEIGHT - (oSprite.height/2),oSprite,"",FONT_GAME,"#f951aa",22,s_oStage);  
+        _oSpinBut = new CTextButton(1090 + (oSprite.width/2),CANVAS_HEIGHT - (oSprite.height/2),oSprite,"",FONT_PAY,"#9d08d4",32,s_oStage); 
         _oSpinBut.addEventListener(ON_MOUSE_UP, this._onSpin, this);
-        
         
         oSprite = s_oSpriteLibrary.getSprite('info_but');
         _oInfoBut = new CTextButton(328 + (oSprite.width/2),CANVAS_HEIGHT - (oSprite.height/2),oSprite,TEXT_INFO,FONT_GAME,"#ffffff",24,s_oStage);        
@@ -115,6 +115,15 @@ function CInterface(iCurBet,iTotBet,iMoney){
                     TEXT_MONEY +"\n"+iMoney.toFixed(2)+ TEXT_CURRENCY,
                     true, true, true,
                     false);
+
+        _oPayText = new CTLText(s_oStage, 
+                    CANVAS_WIDTH/2 - 110, CANVAS_HEIGHT - 140, oSprite.width-20, 60, 
+                    60, "center", "#f951aa", FONT_PAY, 1,
+                    0, 0,
+                    "",
+                    true, true, true,
+                    false);
+
                     /*
 	_oMoneyText = new createjs.Text(TEXT_MONEY +"\n"+iMoney.toFixed(2)+ TEXT_CURRENCY,"30px "+FONT_GAME, "#f951aa");
         _oMoneyText.x = 450;
@@ -202,6 +211,8 @@ function CInterface(iCurBet,iTotBet,iMoney){
         _oBetCoinBut = null;
         _oMaxBetBut.unload();
         _oMaxBetBut = null;
+        _oPayText.unload();
+        _oPayText = null;
         
         if(DISABLE_SOUND_MOBILE === false || s_bMobile === false){
             _oAudioToggle.unload();
@@ -263,10 +274,12 @@ function CInterface(iCurBet,iTotBet,iMoney){
     
     this.resetWin = function(){
         _oSpinBut.changeText("");
+        _oPayText.refreshText("");
     };
     
     this.refreshWinText = function(iWin){
-        _oSpinBut.changeText(TEXT_WIN + "\n"+iWin.toFixed(2));
+        _oSpinBut.changeText("");
+        _oPayText.refreshText(iWin.toFixed(2));
     };
     
     this.showLine = function(iLine){
