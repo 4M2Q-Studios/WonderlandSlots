@@ -38,7 +38,7 @@ function CSlotSettings() {
         s_aSymbolAnims = new Array();
         
         var oData = {   
-                        framerate: 20,
+                        framerate: FRAMERATE_SYMBOLS,
                         images: [s_oSpriteLibrary.getSprite('symbol_1_anim')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0}, 
@@ -48,7 +48,7 @@ function CSlotSettings() {
         s_aSymbolAnims[0] = new createjs.SpriteSheet(oData);
         
         oData = {   
-                        framerate: 20,
+                        framerate: FRAMERATE_SYMBOLS,
                         images: [s_oSpriteLibrary.getSprite('symbol_2_anim')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0}, 
@@ -58,7 +58,7 @@ function CSlotSettings() {
         s_aSymbolAnims[1] = new createjs.SpriteSheet(oData);
         
         oData = {   
-                        framerate: 20,
+                        framerate: FRAMERATE_SYMBOLS,
                         images: [s_oSpriteLibrary.getSprite('symbol_3_anim')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0}, 
@@ -68,7 +68,7 @@ function CSlotSettings() {
         s_aSymbolAnims[2] = new createjs.SpriteSheet(oData);
         
         oData = {   
-                        framerate: 20,
+                        framerate: FRAMERATE_SYMBOLS,
                         images: [s_oSpriteLibrary.getSprite('symbol_4_anim')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0}, 
@@ -78,7 +78,7 @@ function CSlotSettings() {
         s_aSymbolAnims[3] = new createjs.SpriteSheet(oData);
         
         oData = {   
-                        framerate: 20,
+                        framerate: FRAMERATE_SYMBOLS,
                         images: [s_oSpriteLibrary.getSprite('symbol_5_anim')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0}, 
@@ -88,7 +88,7 @@ function CSlotSettings() {
         s_aSymbolAnims[4] = new createjs.SpriteSheet(oData);
         
         oData = {   
-                        framerate: 20,
+                        framerate: FRAMERATE_SYMBOLS,
                         images: [s_oSpriteLibrary.getSprite('symbol_6_anim')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0}, 
@@ -98,7 +98,7 @@ function CSlotSettings() {
         s_aSymbolAnims[5] = new createjs.SpriteSheet(oData);
         
         oData = {   
-                        framerate: 20,
+                        framerate: FRAMERATE_SYMBOLS,
                         images: [s_oSpriteLibrary.getSprite('symbol_7_anim')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0}, 
@@ -108,7 +108,7 @@ function CSlotSettings() {
         s_aSymbolAnims[6] = new createjs.SpriteSheet(oData);
         
         oData = {   
-                        framerate: 20,
+                        framerate: FRAMERATE_SYMBOLS,
                         images: [s_oSpriteLibrary.getSprite('symbol_8_anim')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0}, 
@@ -119,7 +119,7 @@ function CSlotSettings() {
         
 
         oData = {   
-                        framerate: 20,
+                        framerate: FRAMERATE_SYMBOLS,
                         images: [s_oSpriteLibrary.getSprite('symbol_9_anim')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0}, 
@@ -129,7 +129,7 @@ function CSlotSettings() {
         s_aSymbolAnims[8] = new createjs.SpriteSheet(oData);
         
         oData = {   
-                        framerate: 20,
+                        framerate: FRAMERATE_SYMBOLS,
                         images: [s_oSpriteLibrary.getSprite('symbol_10_anim')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0}, 
