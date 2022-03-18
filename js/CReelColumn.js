@@ -98,7 +98,7 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
         _bHold = bHold;
         _iContDelay = 0;
     };
-    
+
     this.restart = function(aSymbols,bReadyToStop) {
         _oContainer.y = _iCurStartY = REEL_START_Y;
         _iFinalY = _iCurStartY + (SYMBOL_SIZE *NUM_ROWS);
@@ -189,9 +189,11 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
             var iValue = s_oTweenController.tweenValue( _iCurStartY, _iFinalY, fLerpY);
             _oContainer.y = iValue;	
         }
-        
-        
     };
+
+    this._stop = function() {
+        // Implementar
+    }
 
     this.update = function(iCurIndexToStop) {
         if (_bUpdate === false) {

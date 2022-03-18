@@ -292,10 +292,9 @@ function CGame(oData){
     };
     
     this.reelArrived = function(iReelIndex,iCol) {
+        
         if(_iCurReelLoops>MIN_REEL_LOOPS ){
-            
             if (_iNextColToStop === iCol) {
-                
                 if (_aMovingColumns[iReelIndex].isReadyToStop() === false) {
                     var iNewReelInd = iReelIndex;
                     if (iReelIndex < NUM_REELS) {
@@ -351,11 +350,14 @@ function CGame(oData){
     };
     
     this._endReelAnimation = function(){
+        console.log("End Reel Animation");
         stopSound("reels");
 
         _iCurReelLoops = 0;
         _iNumReelsStopped = 0;
         _iNextColToStop = _aReelSequence[0];
+
+        _oInterface.showSpin();
         
         for(var k=0;k<NUM_REELS;k++){
             _aIndexColumnHold[k] =  false;
@@ -392,6 +394,7 @@ function CGame(oData){
             }
             _iTimeElaps = 0;
             _iCurState = GAME_STATE_SHOW_ALL_WIN;
+            //console.log("endReelAnimation 1");
 
             playSound("win",1,false);
             
@@ -404,12 +407,14 @@ function CGame(oData){
             if(_bFirstSpin){
                 this.enableColumnHitArea();
                 _bFirstSpin = false;
-                _oInterface.enableSpin();
+                _oInterface.enableSpin();              
                 _oInterface.disableMaxBet();
+                //console.log("endReelAnimation 2");
             }else{
                 _oInterface.disableBetBut(false);
                 _oInterface.enableGuiButtons();
                 _bFirstSpin = true;
+                //console.log("endReelAnimation 3");
             }
             _iCurState = GAME_STATE_IDLE;
         }
@@ -461,7 +466,6 @@ function CGame(oData){
             
 
         _iCurWinShown++;
-        
     };
     
     this._hideAllWins = function(){
@@ -719,11 +723,19 @@ function CGame(oData){
 
         _oInterface.hideAllLines();
         _oInterface.disableGuiButtons();
+        _oInterface.hideSpin();
         
         _bFirstPlay = false;
         _iCurState = GAME_STATE_SPINNING;
     };
     
+    this.onStop = function() {
+        //_oInterface.showSpin();
+        for(var i=0;i<_aMovingColumns.length;i++){
+            _aMovingColumns[i]._stop();
+        }
+    }
+
     this._assignWin = function(){
         if(SLOT_CASH < (BONUS_PRIZE[0][0]*_iCurBet)){
                 //NO BONUS

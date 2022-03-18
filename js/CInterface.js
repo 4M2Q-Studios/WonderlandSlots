@@ -7,6 +7,7 @@ function CInterface(iCurBet,iTotBet,iMoney){
     
     var _oButExit;
     var _oSpinBut;
+    var _oStopBut;
     var _oPayText;
     var _oInfoBut;
     var _oAddLineBut;
@@ -59,11 +60,15 @@ function CInterface(iCurBet,iTotBet,iMoney){
         oSprite = s_oSpriteLibrary.getSprite('spin_but');
         _oSpinBut = new CTextButton(1090 + (oSprite.width/2),CANVAS_HEIGHT - (oSprite.height/2),oSprite,"",FONT_PAY,"#9d08d4",32,s_oStage); 
         _oSpinBut.addEventListener(ON_MOUSE_UP, this._onSpin, this);
+
+        oSprite = s_oSpriteLibrary.getSprite('stop_but');
+        _oStopBut = new CTextButton(1090 + (oSprite.width/2),CANVAS_HEIGHT - (oSprite.height/2),oSprite,"",FONT_PAY,"#9d08d4",32,s_oStage);
+        _oStopBut.addEventListener(ON_MOUSE_UP, this._onStop, this);
+        _oStopBut.setVisible(false);
         
         oSprite = s_oSpriteLibrary.getSprite('info_but');
         _oInfoBut = new CTextButton(328 + (oSprite.width/2),CANVAS_HEIGHT - (oSprite.height/2),oSprite,TEXT_INFO,FONT_GAME,"#ffffff",24,s_oStage);        
         _oInfoBut.addEventListener(ON_MOUSE_UP, this._onInfo, this);
-        
         
         oSprite = s_oSpriteLibrary.getSprite('but_lines_bg');
         _oAddLineBut = new CTextButton(494 + (oSprite.width/2),CANVAS_HEIGHT - (oSprite.height/2),oSprite,TEXT_LINES,FONT_GAME,"#ffffff",24,s_oStage);
@@ -203,6 +208,8 @@ function CInterface(iCurBet,iTotBet,iMoney){
         _oButExit = null;
         _oSpinBut.unload();
         _oSpinBut = null;
+        _oStopBut.unload();
+        _oStopBut = null;
         _oInfoBut.unload();
         _oInfoBut = null;
         _oAddLineBut.unload();
@@ -319,7 +326,17 @@ function CInterface(iCurBet,iTotBet,iMoney){
             _oSpinBut.disable();
             _oMaxBetBut.disable();
     };
-    
+
+    this.showSpin = function() {
+        _oSpinBut.setVisible(true);
+        _oStopBut.setVisible(false);
+    }
+
+    this.hideSpin = function() {
+        _oSpinBut.setVisible(false);
+        _oStopBut.setVisible(true);
+    }
+
     this.enableMaxBet = function(){
         _oMaxBetBut.enable();
     };
@@ -348,6 +365,10 @@ function CInterface(iCurBet,iTotBet,iMoney){
     
     this._onSpin = function(){
         s_oGame.onSpin();
+    };
+
+    this._onStop = function(){
+        s_oGame.onStop();
     };
     
     this._onAddLine = function(){

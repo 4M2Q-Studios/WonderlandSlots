@@ -132,6 +132,7 @@ function CMain(oData){
         s_oSpriteLibrary.addSprite("but_play_bg","./sprites/but_play_bg.png");
         s_oSpriteLibrary.addSprite("mask_slot","./sprites/mask_slot.png");
         s_oSpriteLibrary.addSprite("spin_but","./sprites/but_spin_bg.png");
+        s_oSpriteLibrary.addSprite("stop_but","./sprites/but_stop_bg.png");
         s_oSpriteLibrary.addSprite("coin_but","./sprites/but_coin_bg.png");
         s_oSpriteLibrary.addSprite("info_but","./sprites/but_info_bg.png");
         s_oSpriteLibrary.addSprite("bet_but","./sprites/bet_but.png");
