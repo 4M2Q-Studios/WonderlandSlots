@@ -10,9 +10,9 @@ var FONT_PAY = 'Bebas Neue', cursive;
 var FPS_TIME      = 1000/24;
 var DISABLE_SOUND_MOBILE = false;
 
-var FRAMERATE_SYMBOLS = 12; // Frames por segundo sibolos de reel
-var FRAMERATE_HATS = 16; // Animacion IDLE sombrero bonus
-var FRAMERATE_HAT_ANIM = 16; // Animacion sombrero seleccionado bonus
+var FRAMERATE_SYMBOLS = 6; // Frames por segundo sibolos de reel
+var FRAMERATE_HATS = 20; // Animacion IDLE sombrero bonus
+var FRAMERATE_HAT_ANIM = 20; // Animacion sombrero seleccionado bonus
 
 var STATE_LOADING = 0;
 var STATE_MENU    = 1;
