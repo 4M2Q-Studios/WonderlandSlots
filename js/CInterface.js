@@ -114,7 +114,7 @@ function CInterface(iCurBet,iTotBet,iMoney){
         _oTotalBetText.setShadow("#000", 2, 2, 2);
         
         _oMoneyText = new CTLText(s_oStage, 
-                    349, 22, oSprite.width-20, 60, 
+                    349, 25, oSprite.width-20, 60, 
                     60, "center", "#f951aa", FONT_GAME, 1,
                     0, 0,
                     TEXT_MONEY +"\n"+iMoney.toFixed(2)+ TEXT_CURRENCY,

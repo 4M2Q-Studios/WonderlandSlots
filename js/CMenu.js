@@ -17,7 +17,9 @@ function CMenu(){
         s_oStage.addChild(_oBg);
 
         var oSprite = s_oSpriteLibrary.getSprite('but_play_bg');
-        _oButPlay = new CTextButton((CANVAS_WIDTH/2),CANVAS_HEIGHT - 80,oSprite,TEXT_PLAY,FONT_GAME,"#ffffff",42,s_oStage);
+        _oButPlay = new CTextButton((CANVAS_WIDTH/2),CANVAS_HEIGHT - 80,oSprite,TEXT_PLAY,FONT_GAME,"#ffffff",54,s_oStage);
+        _oButPlay.getText().setY(100);
+
         _oButPlay.addEventListener(ON_MOUSE_UP, this._onButPlayRelease, this);
 
         if(DISABLE_SOUND_MOBILE === false || s_bMobile === false){

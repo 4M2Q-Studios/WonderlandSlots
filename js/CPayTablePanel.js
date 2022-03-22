@@ -15,16 +15,16 @@ function CPayTablePanel(){
         this._createPayouts();
         
          _oWildText = new CTLText(_oContainer, 
-                    528, 322, 210, 130, 
-                    21, "center", "#ffff00", FONT_GAME, 1,
+                    528, 350, 220, 130, 
+                    20, "center", "#ffff00", FONT_GAME, 1,
                     0, 0,
                     TEXT_HELP_WILD,
                     true, true, true,
                     false);
         
         _oBonusText = new CTLText(_oContainer, 
-                    908, 322, 210, 130, 
-                    21, "center", "#ffff00", FONT_GAME, 1,
+                    908, 350, 210, 130, 
+                    20, "center", "#ffff00", FONT_GAME, 1,
                     0, 0,
                     TEXT_HELP_BONUS,
                     true, true, true,
@@ -74,7 +74,7 @@ function CPayTablePanel(){
         _aNumSymbolComboText = new Array();
         _aWinComboText = new Array();
         
-        var aPos = [{x:430,y:130},{x:650,y:130},{x:880,y:130},{x:1100,y:130},{x:430,y:232},{x:650,y:232},{x:880,y:232},{x:1100,y:232}];
+        var aPos = [{x:430,y:130},{x:650,y:130},{x:880,y:130},{x:1100,y:130},{x:430,y:263},{x:650,y:263},{x:880,y:263},{x:1100,y:263}];
         var iCurPos = 0;
         for(var i=0;i<s_aSymbolWin.length;i++){
             
@@ -98,9 +98,9 @@ function CPayTablePanel(){
                 continue;
             }
             
-            var iOffsetY = 30;
+            var iOffsetY = 25;
             if(iLen === 4){
-                iOffsetY = 22;
+                iOffsetY = 18;
             }
 
             var iYPos = aPos[iCurPos].y;
@@ -108,7 +108,7 @@ function CPayTablePanel(){
             _aWinComboText[i] = new Array();
 
             for(var j=0;j<iLen;j++){
-                var oTextMult = new createjs.Text("X"+(5-j),"25px "+FONT_GAME, "#ffffff");
+                var oTextMult = new createjs.Text("X"+(5-j),"20px "+FONT_GAME, "#ffffff");
                 oTextMult.textAlign = "center";
                 oTextMult.x = aPos[iCurPos].x;
                 oTextMult.y = iYPos;
@@ -117,7 +117,7 @@ function CPayTablePanel(){
 
                 _aNumSymbolComboText[i][j] = oTextMult;
                 
-                var oText = new createjs.Text(aSymbolPayouts[iLen-j-1],"25px "+FONT_GAME, "#ffff00");
+                var oText = new createjs.Text(aSymbolPayouts[iLen-j-1],"20px "+FONT_GAME, "#ffff00");
                 oText.textAlign = "center";
                 oText.x = oTextMult.x + 50;
                 oText.y = oTextMult.y;

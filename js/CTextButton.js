@@ -46,9 +46,13 @@ function CTextButton(iXPos,iYPos,oSprite,szText,szFont,szColor,iFontSize,oParent
                     szText,
                     true, true, false,
                     false );
-                    
+          
         this._initListener();
     };
+
+    this.getText = function() {
+        return _oText;
+    }
     
     this.unload = function(){
        _oButton.off("mousedown", _oListenerDown);
