@@ -14,7 +14,7 @@ function CStaticSymbolCell(iRow,iCol,iXPos,iYPos){
         
         _oContainer = new createjs.Container();
         _oContainer.visible = false;
-        
+
         var oParent= this;
         _aSprites = new Array();
         for(var i=0;i<NUM_SYMBOLS;i++){
@@ -22,6 +22,7 @@ function CStaticSymbolCell(iRow,iCol,iXPos,iYPos){
             oSprite.stop();
             oSprite.x = iXPos;
             oSprite.y = iYPos;
+            
             oSprite.on("animationend", oParent._onAnimEnded, null, false, {index:i});
             _oContainer.addChild(oSprite);
             
@@ -33,8 +34,9 @@ function CStaticSymbolCell(iRow,iCol,iXPos,iYPos){
                         framerate: 60,
                         images: [s_oSpriteLibrary.getSprite('win_frame_anim')], 
                         // width, height & registration point of each sprite
-                        frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0}, 
+                        frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count: 20}, 
                         animations: {  static: [0, 1],anim:[1,19] }
+                        
         };
 
         var oSpriteSheet = new createjs.SpriteSheet(oData);
@@ -44,8 +46,12 @@ function CStaticSymbolCell(iRow,iCol,iXPos,iYPos){
         _oWinningFrame.x = iXPos;
         _oWinningFrame.y = iYPos;
         _oContainer.addChild(_oWinningFrame);
-        
+
         s_oStage.addChild(_oContainer);
+
+        _oFrontSkin = createBitmap(s_oSpriteLibrary.getSprite('mask_slot'));
+        _oContainer.addChild(_oFrontSkin);     
+
     };
     
     this.unload = function(){
@@ -65,7 +71,7 @@ function CStaticSymbolCell(iRow,iCol,iXPos,iYPos){
 
         _oWinningFrame.gotoAndPlay("anim");
         _oWinningFrame.visible = true;
-        
+
         for(var i=0;i<NUM_SYMBOLS;i++){
             if( (i+1) === iValue){
                 _aSprites[i].visible = true;
