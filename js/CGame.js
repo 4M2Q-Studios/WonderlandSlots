@@ -350,7 +350,7 @@ function CGame(oData){
     };
     
     this._endReelAnimation = function(){
-        console.log("End Reel Animation");
+        //console.log("End Reel Animation");
         stopSound("reels");
 
         _iCurReelLoops = 0;
@@ -365,6 +365,12 @@ function CGame(oData){
             _aMovingColumns[k].setHold(false);
             _aMovingColumns[k+NUM_REELS].setHold(false);
         }
+
+        /*for(var i=0;i<NUM_ROWS;i++){
+            for(var j=0;j<NUM_REELS;j++){
+                _aStaticSymbols[i][j].show();
+            }
+        }*/
         
         _iNumIndexHold = 0;
         
