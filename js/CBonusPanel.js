@@ -78,7 +78,7 @@ function CBonusPanel(){
         _aAlienSprites[0].y = CANVAS_HEIGHT - 75;
         _oContainer.addChild(_aAlienSprites[0]);
         
-        var oText = new createjs.Text("100","35px " + FONT_GAME, "#b800cc");
+        var oText = new createjs.Text("100","35px " + FONT_GAME, "#f951aa");
         oText.textAlign = "left";
         oText.x = _aAlienSprites[0].x + (oSprite.width/NUM_ALIEN)/2 + 6;
         oText.y = _aAlienSprites[0].y + 12;
@@ -91,7 +91,7 @@ function CBonusPanel(){
         _aAlienSprites[1].y = CANVAS_HEIGHT - 75;
         _oContainer.addChild(_aAlienSprites[1]);
         
-        oText = new createjs.Text("200","35px "  + FONT_GAME, "#b800cc");
+        oText = new createjs.Text("200","35px "  + FONT_GAME, "#f951aa");
         oText.textAlign = "left";
         oText.x = _aAlienSprites[1].x + + (oSprite.width/NUM_ALIEN)/2 + 6;
         oText.y = _aAlienSprites[1].y + 12;
@@ -104,7 +104,7 @@ function CBonusPanel(){
         _aAlienSprites[2].y = CANVAS_HEIGHT - 75;
         _oContainer.addChild(_aAlienSprites[2]);
         
-        oText = new createjs.Text("300","35px " + FONT_GAME, "#b800cc");
+        oText = new createjs.Text("300","35px " + FONT_GAME, "#f951aa");
         oText.textAlign = "left";
         oText.x = _aAlienSprites[2].x + + (oSprite.width/NUM_ALIEN)/2+ 6;
         oText.y = _aAlienSprites[2].y + 12;
@@ -112,7 +112,7 @@ function CBonusPanel(){
         _oContainer.addChild(oText);
         _aAlienPrizes.push(oText);
         
-        _oWinText = new createjs.Text("+ 300","80px "+FONT_GAME, "#b800cc");
+        _oWinText = new createjs.Text("+ 300","80px "+FONT_GAME, "#f951aa");
         _oWinText.alpha = 0;
         _oWinText.textAlign = "center";
         _oWinText.shadow = new createjs.Shadow("#000", 2, 2, 2);
