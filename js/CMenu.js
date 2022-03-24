@@ -6,6 +6,7 @@ function CMenu(){
     var _fRequestFullScreen = null;
     var _fCancelFullScreen = null;
     var _oBg;
+    var _oShisha;
     var _oButPlay;
     var _oAudioToggle;
     var _oButCredits;
@@ -15,6 +16,22 @@ function CMenu(){
     this._init = function(){
         _oBg = createBitmap(s_oSpriteLibrary.getSprite('bg_menu'));
         s_oStage.addChild(_oBg);
+
+        var oData = {   // image to use
+                        framerate: 5,
+                        images: [s_oSpriteLibrary.getSprite('shisha_anim')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: 384, height: 410, regX: 0, regY: 0, count: 15}, 
+                        animations: {  anim:[0,14] }
+                        
+        };
+
+        var oSpriteSheet = new createjs.SpriteSheet(oData);
+        _oShisha = createSprite(oSpriteSheet, "anim", 0,0,384, 410);
+        _oShisha.x = CANVAS_WIDTH - 300;
+        _oShisha.y = CANVAS_HEIGHT - 545;
+        _oShisha.play("anim");
+        s_oStage.addChild(_oShisha);
 
         var oSprite = s_oSpriteLibrary.getSprite('but_play_bg');
         _oButPlay = new CTextButton((CANVAS_WIDTH/2),CANVAS_HEIGHT - 80,oSprite,TEXT_PLAY,FONT_GAME,"#ffffff",54,s_oStage);

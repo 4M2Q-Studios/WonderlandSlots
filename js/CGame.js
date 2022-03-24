@@ -33,6 +33,7 @@ function CGame(oData){
     var _oPayTable = null;
     var _oBonusPanel;
     var _oRechargePanel;
+    var _oShisha;
     
     this._init = function(){
         _iCurState = GAME_STATE_IDLE;
@@ -67,6 +68,21 @@ function CGame(oData){
         _oFrontSkin = createBitmap(s_oSpriteLibrary.getSprite('mask_slot'));
         s_oStage.addChild(_oFrontSkin);
 
+        var oData = {   // image to use
+                        framerate: 5,
+                        images: [s_oSpriteLibrary.getSprite('shisha_anim')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: 384, height: 410, regX: 0, regY: 0, count: 15}, 
+                        animations: {  anim:[0,14] }
+                        
+        };
+
+        var oSpriteSheet = new createjs.SpriteSheet(oData);
+        _oShisha = createSprite(oSpriteSheet, "anim", 0,0,384, 410);
+        _oShisha.x = CANVAS_WIDTH - 300;
+        _oShisha.y = CANVAS_HEIGHT - 545;
+        _oShisha.play("anim");
+        s_oStage.addChild(_oShisha);
         
         this._initStaticSymbols();
         
@@ -90,6 +106,7 @@ function CGame(oData){
         
         s_oStage.removeChild(_oBg);
         s_oStage.removeChild(_oFrontSkin);
+        s_oStage.removeChild(_oShisha);
         _oInterface.unload();
         _oPayTable.unload();
         _oRechargePanel.unload();
@@ -292,7 +309,6 @@ function CGame(oData){
     };
     
     this.reelArrived = function(iReelIndex,iCol) {
-        
         if(_iCurReelLoops>MIN_REEL_LOOPS ){
             if (_iNextColToStop === iCol) {
                 if (_aMovingColumns[iReelIndex].isReadyToStop() === false) {
@@ -360,17 +376,23 @@ function CGame(oData){
         _oInterface.showSpin();
         
         for(var k=0;k<NUM_REELS;k++){
+
+            // SHOW NO PAY STATUS SYMBOLS
+            if(_aWinningLine.length > 0) {
+                _aMovingColumns[k].setPaying(true);
+                _aMovingColumns[k+NUM_REELS].setPaying(true);
+                console.log("Entro 1");
+            } else {
+                _aMovingColumns[k].setPaying(false);
+                _aMovingColumns[k+NUM_REELS].setPaying(false);
+                console.log("Entro 2");
+            }
+
             _aIndexColumnHold[k] =  false;
             _aSelectCol[k].visible = false;
             _aMovingColumns[k].setHold(false);
             _aMovingColumns[k+NUM_REELS].setHold(false);
         }
-
-        /*for(var i=0;i<NUM_ROWS;i++){
-            for(var j=0;j<NUM_REELS;j++){
-                _aStaticSymbols[i][j].show();
-            }
-        }*/
         
         _iNumIndexHold = 0;
         
@@ -395,9 +417,10 @@ function CGame(oData){
             SLOT_CASH -= _iTotWin;
             
             if(_iTotWin>0){
-                    _oInterface.refreshMoney(_iMoney);
-                    _oInterface.refreshWinText(_iTotWin);
+                _oInterface.refreshMoney(_iMoney);
+                _oInterface.refreshWinText(_iTotWin);
             }
+
             _iTimeElaps = 0;
             _iCurState = GAME_STATE_SHOW_ALL_WIN;
             //console.log("endReelAnimation 1");
@@ -504,6 +527,8 @@ function CGame(oData){
         for(var i=0;i<NUM_REELS;i++){
             _aHoldText[i].refreshText(TEXT_HOLD);
             _aHitAreaColumn[i].setVisible(true);
+            _aMovingColumns[i].setPaying(true);
+            _aMovingColumns[i+NUM_REELS].setPaying(true);
         }
     };
 
@@ -511,6 +536,8 @@ function CGame(oData){
         for(var i=0;i<NUM_REELS;i++){
             _aHoldText[i].refreshText(" ");
             _aHitAreaColumn[i].setVisible(false);
+            _aMovingColumns[i].setPaying(false);
+            _aMovingColumns[i+NUM_REELS].setPaying(false);
         }
     };
     
@@ -618,6 +645,9 @@ function CGame(oData){
             
             _aMovingColumns[iIndexCol].setHold(false);
             _aMovingColumns[iIndexCol+NUM_REELS].setHold(false);
+
+            _aMovingColumns[iIndexCol].setPaying(true);
+            _aMovingColumns[iIndexCol+NUM_REELS].setPaying(true);
             
         }else if(_iNumIndexHold < MAX_NUM_HOLD){
             _aIndexColumnHold[iIndexCol] =  true;
@@ -626,6 +656,9 @@ function CGame(oData){
             _aHoldText[iIndexCol].refreshText(" ");
             _aMovingColumns[iIndexCol].setHold(true);
             _aMovingColumns[iIndexCol+NUM_REELS].setHold(true);
+
+            _aMovingColumns[iIndexCol].setPaying(false);
+            _aMovingColumns[iIndexCol+NUM_REELS].setPaying(false);
             
             
             playSound("press_hold",1,false);
@@ -646,6 +679,7 @@ function CGame(oData){
         
         for(var k=0;k<_aMovingColumns.length;k++){
             _aMovingColumns[k].activate();
+            _aMovingColumns[k].setPaying(false);
         }
         
         _iCurState = GAME_STATE_IDLE;

@@ -149,6 +149,7 @@ function CMain(oData){
         s_oSpriteLibrary.addSprite("msg_box","./sprites/msg_box.png");
         s_oSpriteLibrary.addSprite("logo_ctl","./sprites/logo_ctl.png");
         s_oSpriteLibrary.addSprite("but_fullscreen","./sprites/but_fullscreen.png");
+        s_oSpriteLibrary.addSprite("shisha_anim","./sprites/shisha_anim.png");
         
         for(var i=1;i<NUM_SYMBOLS+1;i++){
             s_oSpriteLibrary.addSprite("symbol_"+i,"./sprites/symbol_"+i+".png");
