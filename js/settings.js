@@ -6,6 +6,7 @@ var EDGEBOARD_Y = 0;
 
 var FONT_GAME = "Sedgwick Ave", cursive;
 var FONT_PAY = 'Bebas Neue', cursive;
+var FONT_COLOR_PINK = "#f951aa";
 
 var FPS_TIME      = 1000/24;
 var DISABLE_SOUND_MOBILE = false;

@@ -58,11 +58,11 @@ function CInterface(iCurBet,iTotBet,iMoney){
         }
         
         oSprite = s_oSpriteLibrary.getSprite('spin_but');
-        _oSpinBut = new CTextButton(1090 + (oSprite.width/2),CANVAS_HEIGHT - (oSprite.height/2),oSprite,"",FONT_PAY,"#9d08d4",32,s_oStage); 
+        _oSpinBut = new CTextButton(1090 + (oSprite.width/2),CANVAS_HEIGHT - (oSprite.height/2),oSprite,"",FONT_PAY,FONT_COLOR_PINK,32,s_oStage); 
         _oSpinBut.addEventListener(ON_MOUSE_UP, this._onSpin, this);
 
         oSprite = s_oSpriteLibrary.getSprite('stop_but');
-        _oStopBut = new CTextButton(1090 + (oSprite.width/2),CANVAS_HEIGHT - (oSprite.height/2),oSprite,"",FONT_PAY,"#9d08d4",32,s_oStage);
+        _oStopBut = new CTextButton(1090 + (oSprite.width/2),CANVAS_HEIGHT - (oSprite.height/2),oSprite,"",FONT_PAY,FONT_COLOR_PINK,32,s_oStage);
         _oStopBut.addEventListener(ON_MOUSE_UP, this._onStop, this);
         _oStopBut.setVisible(false);
         
@@ -115,7 +115,7 @@ function CInterface(iCurBet,iTotBet,iMoney){
         
         _oMoneyText = new CTLText(s_oStage, 
                     349, 25, oSprite.width-20, 60, 
-                    60, "center", "#f951aa", FONT_GAME, 1,
+                    60, "center", FONT_COLOR_PINK, FONT_GAME, 1,
                     0, 0,
                     TEXT_MONEY +"\n"+iMoney.toFixed(2)+ TEXT_CURRENCY,
                     true, true, true,
@@ -123,7 +123,7 @@ function CInterface(iCurBet,iTotBet,iMoney){
 
         _oPayText = new CTLText(s_oStage, 
                     CANVAS_WIDTH/2 - 110, CANVAS_HEIGHT - 140, oSprite.width-20, 60, 
-                    60, "center", "#f951aa", FONT_PAY, 1,
+                    60, "center", FONT_COLOR_PINK, FONT_PAY, 1,
                     0, 0,
                     "",
                     true, true, true,

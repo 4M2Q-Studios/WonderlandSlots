@@ -16,7 +16,7 @@ function CPayTablePanel(){
         
          _oWildText = new CTLText(_oContainer, 
                     528, 350, 220, 130, 
-                    20, "center", "#ffff00", FONT_GAME, 1,
+                    20, "center", FONT_COLOR_PINK, FONT_GAME, 1,
                     0, 0,
                     TEXT_HELP_WILD,
                     true, true, true,
@@ -24,7 +24,7 @@ function CPayTablePanel(){
         
         _oBonusText = new CTLText(_oContainer, 
                     908, 350, 210, 130, 
-                    20, "center", "#ffff00", FONT_GAME, 1,
+                    20, "center", FONT_COLOR_PINK, FONT_GAME, 1,
                     0, 0,
                     TEXT_HELP_BONUS,
                     true, true, true,
@@ -117,7 +117,7 @@ function CPayTablePanel(){
 
                 _aNumSymbolComboText[i][j] = oTextMult;
                 
-                var oText = new createjs.Text(aSymbolPayouts[iLen-j-1],"20px "+FONT_GAME, "#ffff00");
+                var oText = new createjs.Text(aSymbolPayouts[iLen-j-1],"20px "+FONT_GAME, FONT_COLOR_PINK);
                 oText.textAlign = "center";
                 oText.x = oTextMult.x + 50;
                 oText.y = oTextMult.y;

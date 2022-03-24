@@ -45,13 +45,12 @@ function CStaticSymbolCell(iRow,iCol,iXPos,iYPos){
         _oWinningFrame.stop();
         _oWinningFrame.x = iXPos;
         _oWinningFrame.y = iYPos;
-        _oContainer.addChild(_oWinningFrame);
+        _oContainer.addChild(_oWinningFrame);  
+
+        _oFrontSkin = createBitmap(s_oSpriteLibrary.getSprite('mask_slot2'));
+        _oContainer.addChild(_oFrontSkin); 
 
         s_oStage.addChild(_oContainer);
-
-        _oFrontSkin = createBitmap(s_oSpriteLibrary.getSprite('mask_slot'));
-        _oContainer.addChild(_oFrontSkin);     
-
     };
     
     this.unload = function(){
