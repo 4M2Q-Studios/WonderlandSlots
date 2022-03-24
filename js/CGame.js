@@ -33,6 +33,7 @@ function CGame(oData){
     var _oPayTable = null;
     var _oBonusPanel;
     var _oRechargePanel;
+    var _oShisha;
     
     this._init = function(){
         _iCurState = GAME_STATE_IDLE;
@@ -67,6 +68,21 @@ function CGame(oData){
         _oFrontSkin = createBitmap(s_oSpriteLibrary.getSprite('mask_slot'));
         s_oStage.addChild(_oFrontSkin);
 
+        var oData = {   // image to use
+                        framerate: 5,
+                        images: [s_oSpriteLibrary.getSprite('shisha_anim')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: 384, height: 410, regX: 0, regY: 0, count: 15}, 
+                        animations: {  anim:[0,14] }
+                        
+        };
+
+        var oSpriteSheet = new createjs.SpriteSheet(oData);
+        _oShisha = createSprite(oSpriteSheet, "anim", 0,0,384, 410);
+        _oShisha.x = CANVAS_WIDTH - 300;
+        _oShisha.y = CANVAS_HEIGHT - 545;
+        _oShisha.play("anim");
+        s_oStage.addChild(_oShisha);
         
         this._initStaticSymbols();
         
@@ -90,6 +106,7 @@ function CGame(oData){
         
         s_oStage.removeChild(_oBg);
         s_oStage.removeChild(_oFrontSkin);
+        s_oStage.removeChild(_oShisha);
         _oInterface.unload();
         _oPayTable.unload();
         _oRechargePanel.unload();
