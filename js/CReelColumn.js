@@ -15,6 +15,7 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
     var _iFinalY;
     var _aSymbols;
     var _oContainer;
+    var _bPaying;
     
     this._init = function(iIndex,iXPos,iYPos,iDelay){
         _bUpdate = false;
@@ -24,6 +25,7 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
         _iContDelay = 0;
         _iIndex = iIndex;
         _iDelay = iDelay;
+        _bPaying = false;
         
         if(_iIndex < NUM_REELS){
             _iCol = _iIndex;
@@ -104,18 +106,21 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
         _iFinalY = _iCurStartY + (SYMBOL_SIZE *NUM_ROWS);
         this._setSymbol(aSymbols);
         _bReadyToStop = bReadyToStop;
+
         if (_bReadyToStop) {
             _iCntFrames = 0;
             _iMaxFrames = MAX_FRAMES_REEL_EASE;
             _iCurState = REEL_STATE_STOP;
             for (var i = 0; i < NUM_ROWS; i++) {
                 _aSymbols[i].gotoAndStop("static");
+                _aSymbols[i].alpha = 1;
             }
             _bContainsFinalSymbols = true;
             
         }else{
             for (var i = 0; i < NUM_ROWS; i++) {
                 _aSymbols[i].gotoAndStop("moving");
+                _aSymbols[i].alpha = 1;
             }
         }
     };
@@ -125,7 +130,7 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
         _iMaxFrames = MAX_FRAMES_REEL_EASE;
         _iCurState = REEL_STATE_STOP;
     };
-    
+
     this.isReadyToStop = function(){
         return _bReadyToStop;
     };
@@ -133,6 +138,22 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
     this.isHold = function(){
         return _bHold;
     };
+
+    this.setPaying = function(bPaying) {
+        _bPaying = bPaying;
+        for (var i = 0; i < NUM_ROWS; i++) {
+            if(_bPaying) {
+                _aSymbols[i].alpha = .2;
+            } else {
+                _aSymbols[i].alpha = 1;
+            }
+        }
+        
+    }
+    
+    this.isPaying = function() {
+        return _bPaying;
+    }
     
     this._updateStart = function(){
         if(_iCntFrames === 0 && _iIndex < NUM_REELS){
