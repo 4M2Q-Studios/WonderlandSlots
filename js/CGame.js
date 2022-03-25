@@ -79,8 +79,8 @@ function CGame(oData){
 
         var oSpriteSheet = new createjs.SpriteSheet(oData);
         _oShisha = createSprite(oSpriteSheet, "anim", 0,0,384, 410);
-        _oShisha.x = CANVAS_WIDTH - 300;
-        _oShisha.y = CANVAS_HEIGHT - 545;
+        _oShisha.x = SHISHA_X;
+        _oShisha.y = SHISHA_Y;
         _oShisha.play("anim");
         s_oStage.addChild(_oShisha);
         
@@ -392,6 +392,8 @@ function CGame(oData){
             _aSelectCol[k].visible = false;
             _aMovingColumns[k].setHold(false);
             _aMovingColumns[k+NUM_REELS].setHold(false);
+            _aMovingColumns[k].setHoldActivated(false);
+            _aMovingColumns[k+NUM_REELS].setHoldActivated(false);
         }
         
         _iNumIndexHold = 0;
@@ -527,8 +529,10 @@ function CGame(oData){
         for(var i=0;i<NUM_REELS;i++){
             _aHoldText[i].refreshText(TEXT_HOLD);
             _aHitAreaColumn[i].setVisible(true);
-            _aMovingColumns[i].setPaying(true);
-            _aMovingColumns[i+NUM_REELS].setPaying(true);
+            //_aMovingColumns[i].setPaying(true);
+            //_aMovingColumns[i+NUM_REELS].setPaying(true);
+            _aMovingColumns[i].setHoldActivated(true);
+            _aMovingColumns[i+NUM_REELS].setHoldActivated(true);
         }
     };
 
@@ -536,8 +540,8 @@ function CGame(oData){
         for(var i=0;i<NUM_REELS;i++){
             _aHoldText[i].refreshText(" ");
             _aHitAreaColumn[i].setVisible(false);
-            _aMovingColumns[i].setPaying(false);
-            _aMovingColumns[i+NUM_REELS].setPaying(false);
+            _aMovingColumns[i].setHoldActivated(false);
+            _aMovingColumns[i+NUM_REELS].setHoldActivated(false);
         }
     };
     
@@ -646,8 +650,11 @@ function CGame(oData){
             _aMovingColumns[iIndexCol].setHold(false);
             _aMovingColumns[iIndexCol+NUM_REELS].setHold(false);
 
-            _aMovingColumns[iIndexCol].setPaying(true);
-            _aMovingColumns[iIndexCol+NUM_REELS].setPaying(true);
+            _aMovingColumns[iIndexCol].setHoldActivated(true);
+            _aMovingColumns[iIndexCol+NUM_REELS].setHoldActivated(true);
+
+            //_aMovingColumns[iIndexCol].setPaying(true);
+            //_aMovingColumns[iIndexCol+NUM_REELS].setPaying(true);
             
         }else if(_iNumIndexHold < MAX_NUM_HOLD){
             _aIndexColumnHold[iIndexCol] =  true;
@@ -657,8 +664,11 @@ function CGame(oData){
             _aMovingColumns[iIndexCol].setHold(true);
             _aMovingColumns[iIndexCol+NUM_REELS].setHold(true);
 
-            _aMovingColumns[iIndexCol].setPaying(false);
-            _aMovingColumns[iIndexCol+NUM_REELS].setPaying(false);
+            _aMovingColumns[iIndexCol].setHoldActivated(false);
+            _aMovingColumns[iIndexCol+NUM_REELS].setHoldActivated(false);
+
+            //_aMovingColumns[iIndexCol].setPaying(false);
+            //_aMovingColumns[iIndexCol+NUM_REELS].setPaying(false);
             
             
             playSound("press_hold",1,false);

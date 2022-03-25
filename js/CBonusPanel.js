@@ -19,6 +19,22 @@ function CBonusPanel(){
         _oContainer.alpha = 0;
         _oContainer.visible= false;
         _oContainer.addChild(oBg);
+
+        var oData = {   // image to use
+                        framerate: 5,
+                        images: [s_oSpriteLibrary.getSprite('shisha_anim')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: 384, height: 410, regX: 0, regY: 0, count: 15}, 
+                        animations: {  anim:[0,14] }
+                        
+        };
+
+        var oSpriteSheet = new createjs.SpriteSheet(oData);
+        _oShisha = createSprite(oSpriteSheet, "anim", 0,0,384, 410);
+        _oShisha.x = SHISHA_X;
+        _oShisha.y = SHISHA_Y;
+        _oShisha.play("anim");
+        s_oStage.addChild(_oShisha);
         
         var oData = {   // image to use
                         framerate: FRAMERATE_HATS,

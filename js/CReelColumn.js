@@ -154,6 +154,17 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
     this.isPaying = function() {
         return _bPaying;
     }
+
+    this.setHoldActivated = function(bHold) {
+        for (var i = 0; i < NUM_ROWS; i++) {
+            if(bHold) {
+                _aSymbols[i].gotoAndStop("hold");
+                _aSymbols[i].alpha = 1;
+            } else {
+                _aSymbols[i].gotoAndStop("static");             
+            }
+        }
+    }
     
     this._updateStart = function(){
         if(_iCntFrames === 0 && _iIndex < NUM_REELS){

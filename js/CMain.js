@@ -151,6 +151,8 @@ function CMain(oData){
         s_oSpriteLibrary.addSprite("but_fullscreen","./sprites/but_fullscreen.png");
         s_oSpriteLibrary.addSprite("shisha_anim","./sprites/shisha_anim.png");
         s_oSpriteLibrary.addSprite("mask_slot2","./sprites/mask_slot2.png");
+        s_oSpriteLibrary.addSprite("bg_payment","./sprites/payment_bg.jpg");
+        s_oSpriteLibrary.addSprite("payment_font","./sprites/payment_font.jpg");
         
         for(var i=1;i<NUM_SYMBOLS+1;i++){
             s_oSpriteLibrary.addSprite("symbol_"+i,"./sprites/symbol_"+i+".png");
