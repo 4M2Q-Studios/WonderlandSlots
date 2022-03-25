@@ -381,11 +381,11 @@ function CGame(oData){
             if(_aWinningLine.length > 0) {
                 _aMovingColumns[k].setPaying(true);
                 _aMovingColumns[k+NUM_REELS].setPaying(true);
-                console.log("Entro 1");
+                //console.log("Entro 1");
             } else {
                 _aMovingColumns[k].setPaying(false);
                 _aMovingColumns[k+NUM_REELS].setPaying(false);
-                console.log("Entro 2");
+                //console.log("Entro 2");
             }
 
             _aIndexColumnHold[k] =  false;

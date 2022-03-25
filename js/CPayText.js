@@ -1,5 +1,4 @@
 function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
-    var _bDisable;
     var _iCurScale;
     var _szAlign = szAlign;
     var _iTextWith = 80;
@@ -10,11 +9,11 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
     var _oParentContainer = oParentContainer;
     
     this._init =function(iXPos,iYPos,szText,iFontSize){
-        _bDisable = false;
         _iCurScale = iFontSize;
 
         //_oTextBg = createBitmap(s_oSpriteLibrary.getSprite('bg_payment'));
         _oTextBg = new createjs.Bitmap(s_oSpriteLibrary.getSprite('bg_payment'));
+        //_oTextBg.scaleX = _oTextBg.scaleY = _iCurScale;
         _oTextBg.x = iXPos;
         _oTextBg.y = iYPos;
 
@@ -44,8 +43,9 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
         };
 
         var spriteSheet = new createjs.SpriteSheet(oData);
+        //spriteSheet.scaleX = _oText.scaleY = _iCurScale;
         _oText = new createjs.BitmapText(szText, spriteSheet);
-        _oText.letterSpacing  = -25;
+        _oText.letterSpacing  = -40;
         _oText.x = (iXPos + (_oTextBg.getBounds().width/2) - _oText.letterSpacing) - ((szText.length * _iTextWith) / 2);
         _oText.y = iYPos;
         console.log(_oTextBg.getBounds().width);
@@ -64,6 +64,7 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
     
     this.setVisible = function(bVisible){
         _oTextBg.visible = bVisible;
+        _oText.visible = bVisible;
     };
     
     this.setAlign = function(szAlign){
@@ -83,14 +84,6 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
     this.setScale = function(iScale){
         _oTextBg.scaleX = _oTextBg.scaleY = _oText.scaleX = _oText.scaleY = iScale;
         _iCurScale = iScale;
-    };
-    
-    this.enable = function(){
-        _bDisable = false;
-    };
-    
-    this.disable = function(){
-        _bDisable = true;
     };
     
     this.setPosition = function(iXPos,iYPos){

@@ -129,7 +129,8 @@ function CInterface(iCurBet,iTotBet,iMoney){
                     true, true, true,
                     false);
         
-        _oPayText = new CPayText(CANVAS_WIDTH/2 - 250, CANVAS_HEIGHT - 160, "1.05", 1, s_oStage);//iXPos,iYPos,szText,iFontSize,oParentContainer
+        _oPayText = new CPayText(CANVAS_WIDTH/2 - 250, CANVAS_HEIGHT - 160, "1.05", 0.7, s_oStage);//iXPos,iYPos,szText,iFontSize,oParentContainer
+        _oPayText.setVisible(false);
 
                     /*
 	_oMoneyText = new createjs.Text(TEXT_MONEY +"\n"+iMoney.toFixed(2)+ TEXT_CURRENCY,"30px "+FONT_GAME, "#f951aa");
@@ -283,12 +284,14 @@ function CInterface(iCurBet,iTotBet,iMoney){
     
     this.resetWin = function(){
         _oSpinBut.changeText("");
+        _oPayText.setVisible(false);
         _oPayText.changeText("");
     };
     
     this.refreshWinText = function(iWin){
         _oSpinBut.changeText("");
         _oPayText.changeText(iWin.toFixed(2));
+        _oPayText.setVisible(true);
     };
     
     this.showLine = function(iLine){
