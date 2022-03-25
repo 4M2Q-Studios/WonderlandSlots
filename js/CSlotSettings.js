@@ -16,7 +16,7 @@ function CSlotSettings() {
                             images: [s_oSpriteLibrary.getSprite('symbol_'+i)], 
                             // width, height & registration point of each sprite
                             frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0}, 
-                            animations: {  static: [0, 1],moving:[1,2], nopaid:[2,3] }
+                            animations: {  static: [0, 1],moving:[1,2], hold:[2,3] }
             };
 
             s_aSymbolData[i] = new createjs.SpriteSheet(oData);

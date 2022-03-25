@@ -19,6 +19,22 @@ function CBonusPanel(){
         _oContainer.alpha = 0;
         _oContainer.visible= false;
         _oContainer.addChild(oBg);
+
+        var oData = {   // image to use
+                        framerate: 5,
+                        images: [s_oSpriteLibrary.getSprite('shisha_anim')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: 384, height: 410, regX: 0, regY: 0, count: 15}, 
+                        animations: {  anim:[0,14] }
+                        
+        };
+
+        var oSpriteSheet = new createjs.SpriteSheet(oData);
+        _oShisha = createSprite(oSpriteSheet, "anim", 0,0,384, 410);
+        _oShisha.x = SHISHA_X;
+        _oShisha.y = SHISHA_Y;
+        _oShisha.play("anim");
+        s_oStage.addChild(_oShisha);
         
         var oData = {   // image to use
                         framerate: FRAMERATE_HATS,
@@ -78,10 +94,10 @@ function CBonusPanel(){
         _aAlienSprites[0].y = CANVAS_HEIGHT - 75;
         _oContainer.addChild(_aAlienSprites[0]);
         
-        var oText = new createjs.Text("100","35px " + FONT_GAME, "#f951aa");
+        var oText = new createjs.Text("100","35px " + FONT_GAME, FONT_COLOR_PINK);
         oText.textAlign = "left";
         oText.x = _aAlienSprites[0].x + (oSprite.width/NUM_ALIEN)/2 + 6;
-        oText.y = _aAlienSprites[0].y + 12;
+        oText.y = _aAlienSprites[0].y + 10;
         oText.textBaseline = "alphabetic";
         _oContainer.addChild(oText);
         _aAlienPrizes.push(oText);
@@ -91,10 +107,10 @@ function CBonusPanel(){
         _aAlienSprites[1].y = CANVAS_HEIGHT - 75;
         _oContainer.addChild(_aAlienSprites[1]);
         
-        oText = new createjs.Text("200","35px "  + FONT_GAME, "#f951aa");
+        oText = new createjs.Text("200","35px "  + FONT_GAME, FONT_COLOR_PINK);
         oText.textAlign = "left";
         oText.x = _aAlienSprites[1].x + + (oSprite.width/NUM_ALIEN)/2 + 6;
-        oText.y = _aAlienSprites[1].y + 12;
+        oText.y = _aAlienSprites[1].y + 10;
         oText.textBaseline = "alphabetic";
         _oContainer.addChild(oText);
         _aAlienPrizes.push(oText);
@@ -104,15 +120,15 @@ function CBonusPanel(){
         _aAlienSprites[2].y = CANVAS_HEIGHT - 75;
         _oContainer.addChild(_aAlienSprites[2]);
         
-        oText = new createjs.Text("300","35px " + FONT_GAME, "#f951aa");
+        oText = new createjs.Text("300","35px " + FONT_GAME, FONT_COLOR_PINK);
         oText.textAlign = "left";
         oText.x = _aAlienSprites[2].x + + (oSprite.width/NUM_ALIEN)/2+ 6;
-        oText.y = _aAlienSprites[2].y + 12;
+        oText.y = _aAlienSprites[2].y + 10;
         oText.textBaseline = "alphabetic";
         _oContainer.addChild(oText);
         _aAlienPrizes.push(oText);
         
-        _oWinText = new createjs.Text("+ 300","80px "+FONT_GAME, "#f951aa");
+        _oWinText = new createjs.Text("+ 300","80px "+FONT_GAME, FONT_COLOR_PINK);
         _oWinText.alpha = 0;
         _oWinText.textAlign = "center";
         _oWinText.shadow = new createjs.Shadow("#000", 2, 2, 2);
