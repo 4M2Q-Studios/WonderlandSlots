@@ -145,7 +145,7 @@ function CPayTablePanel(){
         for(var i=0;i<_aNumSymbolComboText.length;i++){
             for(var j=0;j<_aNumSymbolComboText[i].length;j++){
                 _aNumSymbolComboText[i][j].color = "#ffffff";
-                _aWinComboText[i][j].color = "#ffff00";
+                _aWinComboText[i][j].color = FONT_COLOR_PINK;
                 createjs.Tween.removeTweens(_aWinComboText[i][j]);
                 _aWinComboText[i][j].alpha = 1;
             }
