@@ -129,42 +129,9 @@ function CInterface(iCurBet,iTotBet,iMoney){
                     true, true, true,
                     false);
         
-        _oPayText = new CPayText(CANVAS_WIDTH/2 - 250, CANVAS_HEIGHT - 160, "1.05", 0.7, s_oStage);//iXPos,iYPos,szText,iFontSize,oParentContainer
-        _oPayText.setVisible(false);
+        _oPayText = new CPayText(CANVAS_WIDTH/2 - 200, CANVAS_HEIGHT - 160, "1.05", .8, s_oStage);//iXPos,iYPos,szText,iFontSize,oParentContainer
+        //_oPayText.setVisible(true);
 
-                    /*
-	_oMoneyText = new createjs.Text(TEXT_MONEY +"\n"+iMoney.toFixed(2)+ TEXT_CURRENCY,"30px "+FONT_GAME, "#f951aa");
-        _oMoneyText.x = 450;
-        _oMoneyText.y = 46;
-        _oMoneyText.textBaseline = "alphabetic";
-        _oMoneyText.lineHeight = 28;
-        _oMoneyText.textAlign = "center";
-        s_oStage.addChild(_oMoneyText);*/
-        /*
-        _oNumLinesText = new createjs.Text(NUM_PAYLINES ,"26px "+FONT_GAME, "#ffffff");
-        _oNumLinesText.x =  584;
-        _oNumLinesText.y = CANVAS_HEIGHT - 58;
-        _oNumLinesText.shadow = new createjs.Shadow("#000", 2, 2, 2);
-        _oNumLinesText.textAlign = "center";
-        _oNumLinesText.textBaseline = "alphabetic";
-        s_oStage.addChild(_oNumLinesText);
-        
-        _oCoinText = new createjs.Text(iCurBet.toFixed(2) ,"26px "+FONT_GAME, "#ffffff");
-        _oCoinText.x =  776;
-        _oCoinText.y = CANVAS_HEIGHT - 58;
-        _oCoinText.shadow = new createjs.Shadow("#000", 2, 2, 2);
-        _oCoinText.textAlign = "center";
-        _oCoinText.textBaseline = "alphabetic";
-        s_oStage.addChild(_oCoinText);
-
-        _oTotalBetText = new createjs.Text(TEXT_BET +": "+iTotBet.toFixed(2),"26px "+FONT_GAME, "#ffffff");
-        _oTotalBetText.x = 980;
-        _oTotalBetText.y = CANVAS_HEIGHT - 58;
-        _oTotalBetText.shadow = new createjs.Shadow("#000", 2, 2, 2);
-        _oTotalBetText.textAlign = "center";
-        _oTotalBetText.textBaseline = "alphabetic";
-        s_oStage.addChild(_oTotalBetText);
-        */
         oSprite = s_oSpriteLibrary.getSprite('bet_but');
         _aLinesBut = new Array();
         
@@ -292,6 +259,7 @@ function CInterface(iCurBet,iTotBet,iMoney){
         _oSpinBut.changeText("");
         _oPayText.changeText(iWin.toFixed(2));
         _oPayText.setVisible(true);
+        _oPayText.oneShotAnim();
     };
     
     this.showLine = function(iLine){

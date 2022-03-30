@@ -7,13 +7,16 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
     var _oText;
     var _oTextBg;
     var _oParentContainer = oParentContainer;
+
+    var _textBgBounds;
+    var _textBounds;
     
     this._init =function(iXPos,iYPos,szText,iFontSize){
         _iCurScale = iFontSize;
 
-        //_oTextBg = createBitmap(s_oSpriteLibrary.getSprite('bg_payment'));
         _oTextBg = new createjs.Bitmap(s_oSpriteLibrary.getSprite('bg_payment'));
-        //_oTextBg.scaleX = _oTextBg.scaleY = _iCurScale;
+
+        _oTextBg.scaleX = _oTextBg.scaleY = _iCurScale;
         _oTextBg.x = iXPos;
         _oTextBg.y = iYPos;
 
@@ -22,7 +25,7 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
         var oData = {   // image to use
                         images: [s_oSpriteLibrary.getSprite('payment_font')], 
                         // frames
-                        frames: {width: _iTextWith, height: _iTextHeight, regX: 0, regY: 0, count: 13},
+                        frames: {width: _iTextWith, height: _iTextHeight, regX: _iTextWith, regY: _iTextHeight, count: 13},
                         // letters
                         animations: {
                             "$": 0,
@@ -43,16 +46,37 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
         };
 
         var spriteSheet = new createjs.SpriteSheet(oData);
-        //spriteSheet.scaleX = _oText.scaleY = _iCurScale;
+        
         _oText = new createjs.BitmapText(szText, spriteSheet);
+
+        _oText.alpha = 1;
+        _oText.scaleX = _oText.scaleY = _iCurScale;
         _oText.letterSpacing  = -40;
-        _oText.x = (iXPos + (_oTextBg.getBounds().width/2) - _oText.letterSpacing) - ((szText.length * _iTextWith) / 2);
-        _oText.y = iYPos;
-        console.log(_oTextBg.getBounds().width);
-        console.log(_oText.letterSpacing);
+
+        _textBgBounds = _oTextBg.getBounds();
+        _textBounds = _oText.getBounds();
+        this._centerText();
 
         _oParentContainer.addChild(_oText);
+        
     };
+
+    this._centerText = function() {
+        _oText.x = (iXPos + _textBgBounds.width/2) - (_textBounds.width / 2) + (_oText.letterSpacing*-1) - 5;
+        _oText.y = iYPos + _textBgBounds.height/2 + (_textBgBounds.height / 2)*_iCurScale;
+    }
+
+    this.reset = function() {
+        var oParent = this;
+        _oTextBg.scaleX = _oTextBg.scaleY = _iCurScale;
+        _oTextBg.x = iXPos;
+        _oTextBg.y = iYPos;
+
+        _oText.alpha = 0;
+        _oText.scaleX = _oText.scaleY = _iCurScale;
+        _oText.letterSpacing  = -40;
+        oParent._centerText();
+    }
 
     this.getText = function() {
         return _oText.text;
@@ -60,17 +84,19 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
     
     this.unload = function(){     
        _oParentContainer.removeChild(_oTextBg);
+       _oParentContainer.removeChild(_oText);
     };
     
     this.setVisible = function(bVisible){
         _oTextBg.visible = bVisible;
         _oText.visible = bVisible;
+        this.reset();
     };
     
     this.setAlign = function(szAlign){
         if(szAlign === "center") {
             _szAlign = "center";
-            _oText.x = (iXPos + (_oTextBg.getBounds().width/2) - _oText.letterSpacing) - ((szText.length * _iTextWith) / 2);
+            this._centerText();
         } else if(szAlign === "left") {
             _oText.x = iXPos;
             _szAlign = "left";
@@ -123,6 +149,28 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
     this.getScale = function(){
         return _oTextBg.scaleX;
     };
+
+    this.animationComplete = function(){
+        var oParent = this;
+    }
+
+    this.tweenScale = function(iScale){
+        var oParent = this;
+        createjs.Tween.get(_oText)
+        .wait(0)
+        .to({alpha:1, scaleX:iScale, scaleY:iScale}, 200)
+        .call(function(){
+            if(iScale === 1) {
+                oParent.tweenScale(1.2);
+            } else if(iScale === 1.2) {
+                oParent.tweenScale(.8);
+            }
+        });
+    };
+
+    this.oneShotAnim = function(){
+        this.tweenScale(1);
+    }
 
     this._init(iXPos,iYPos,szText,iFontSize);
 }
