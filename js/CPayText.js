@@ -10,7 +10,7 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
 
     var _textBgBounds;
     var _textBounds;
-    
+
     this._init =function(iXPos,iYPos,szText,iFontSize){
         _iCurScale = iFontSize;
 
@@ -20,7 +20,7 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
         _oTextBg.x = iXPos;
         _oTextBg.y = iYPos;
 
-        _oParentContainer.addChild(_oTextBg);
+        _oParentContainer.addChild(_oTextBg);       
         
         var oData = {   // image to use
                         images: [s_oSpriteLibrary.getSprite('payment_font')], 
@@ -63,7 +63,7 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
 
     this._centerText = function() {
         _oText.x = (iXPos + _textBgBounds.width/2) - (_textBounds.width / 2) + (_oText.letterSpacing*-1) - 5;
-        _oText.y = iYPos + _textBgBounds.height/2 + (_textBgBounds.height / 2)*_iCurScale;
+        _oText.y = iYPos + _textBgBounds.height/2 + (_textBgBounds.height / 3);
     }
 
     this.reset = function() {
@@ -171,6 +171,8 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
     this.oneShotAnim = function(){
         this.tweenScale(1);
     }
+
+    
 
     this._init(iXPos,iYPos,szText,iFontSize);
 }
