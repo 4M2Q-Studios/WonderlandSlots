@@ -63,7 +63,7 @@ function CPayText(iXPos,iYPos,szText,iFontSize,oParentContainer, szAlign){
 
     this._centerText = function() {
         _oText.x = (iXPos + _textBgBounds.width/2) - (_textBounds.width / 2) + (_oText.letterSpacing*-1) - 5;
-        _oText.y = iYPos + _textBgBounds.height/2 + (_textBgBounds.height / 3);
+        _oText.y = iYPos + 20 + _textBgBounds.height/2;
     }
 
     this.reset = function() {
