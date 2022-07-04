@@ -19,6 +19,8 @@ var FRAMERATE_HAT_ANIM = 20; // Animacion sombrero seleccionado bonus
 var SHISHA_X = CANVAS_WIDTH - 315;
 var SHISHA_Y = CANVAS_HEIGHT - 542;
 
+var HAT_INITIAL_POS_X = 575;
+
 var STATE_LOADING = 0;
 var STATE_MENU    = 1;
 var STATE_HELP    = 1;

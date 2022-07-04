@@ -148,7 +148,7 @@ function CSlotSettings() {
                         images: [s_oSpriteLibrary.getSprite('symbol_1_idle')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
-                        animations: {  idle: [0,9] }
+                        animations: {  idle: [0,9,"idle"] }
         };
 
         s_aSymbolIdle[0] = new createjs.SpriteSheet(oData);
@@ -158,7 +158,7 @@ function CSlotSettings() {
                         images: [s_oSpriteLibrary.getSprite('symbol_2_idle')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
-                        animations: {  idle: [0,9] }
+                        animations: {  idle: [0,9,"idle"] }
         };
 
         s_aSymbolIdle[1] = new createjs.SpriteSheet(oData);
@@ -168,7 +168,7 @@ function CSlotSettings() {
                         images: [s_oSpriteLibrary.getSprite('symbol_3_idle')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
-                        animations: {  idle: [0,9] }
+                        animations: {  idle: [0,9,"idle"] }
         };
 
         s_aSymbolIdle[2] = new createjs.SpriteSheet(oData);
@@ -178,7 +178,7 @@ function CSlotSettings() {
                         images: [s_oSpriteLibrary.getSprite('symbol_4_idle')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
-                        animations: {  idle: [0,9] }
+                        animations: {  idle: [0,9,"idle"] }
         };
 
         s_aSymbolIdle[3] = new createjs.SpriteSheet(oData);
@@ -188,7 +188,7 @@ function CSlotSettings() {
                         images: [s_oSpriteLibrary.getSprite('symbol_5_idle')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
-                        animations: {  idle: [0,9] }
+                        animations: {  idle: [0,9,"idle"] }
         };
 
         s_aSymbolIdle[4] = new createjs.SpriteSheet(oData);
@@ -198,7 +198,7 @@ function CSlotSettings() {
                         images: [s_oSpriteLibrary.getSprite('symbol_6_idle')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
-                        animations: {  idle: [0,9] }
+                        animations: {  idle: [0,9,"idle"] }
         };
 
         s_aSymbolIdle[5] = new createjs.SpriteSheet(oData);
@@ -208,7 +208,7 @@ function CSlotSettings() {
                         images: [s_oSpriteLibrary.getSprite('symbol_7_idle')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
-                        animations: {  idle: [0,9] }
+                        animations: {  idle: [0,9,"idle"] }
         };
 
         s_aSymbolIdle[6] = new createjs.SpriteSheet(oData);
@@ -218,7 +218,7 @@ function CSlotSettings() {
                         images: [s_oSpriteLibrary.getSprite('symbol_8_idle')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
-                        animations: {  idle: [0,9] }
+                        animations: {  idle: [0,9,"idle"] }
         };
 
         s_aSymbolIdle[7] = new createjs.SpriteSheet(oData);
@@ -229,7 +229,7 @@ function CSlotSettings() {
                         images: [s_oSpriteLibrary.getSprite('symbol_9_idle')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
-                        animations: {  idle: [0,9] }
+                        animations: {  idle: [0,9,"idle"] }
         };
 
         s_aSymbolIdle[8] = new createjs.SpriteSheet(oData);
@@ -239,7 +239,7 @@ function CSlotSettings() {
                         images: [s_oSpriteLibrary.getSprite('symbol_10_idle')], 
                         // width, height & registration point of each sprite
                         frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
-                        animations: {  idle: [0,9] }
+                        animations: {  idle: [0,9,"idle"] }
         };
 
         s_aSymbolIdle[9] = new createjs.SpriteSheet(oData);

@@ -49,7 +49,7 @@ function CBonusPanel(){
 
         _aUfos = new Array();
         
-        var iXPos = 418;
+        var iXPos = HAT_INITIAL_POS_X;
         var iYPos = 376;
         for(var i=0;i<5;i++){
             var oUfo = createSprite(oSpriteSheet, "idle",UFO_WIDTH/2,UFO_HEIGHT/2,UFO_WIDTH,UFO_HEIGHT);
