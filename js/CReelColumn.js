@@ -14,6 +14,7 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
     var _iCurStartY;
     var _iFinalY;
     var _aSymbols;
+    var _aSymbolsIdle;
     var _oContainer;
     var _bPaying;
     
@@ -50,6 +51,7 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
         var iX = 0;
         var iY = 0;
         _aSymbols = new Array();
+        _aSymbolsIdle = new Array();
         for(var i=0;i<NUM_ROWS;i++){
              var iRandIndex = Math.floor(Math.random()* s_aRandSymbols.length);
              var iRandSymbol = s_aRandSymbols[iRandIndex];
@@ -58,7 +60,15 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
              oSprite.x = iX;
              oSprite.y = iY;
              _oContainer.addChild(oSprite);
+
+             var oIdle = new createjs.Sprite(s_aSymbolIdle[iRandSymbol], "idle");
+             oIdle.gotoAndPlay("idle");
+             oIdle.x = iX;
+             oIdle.y = iY;
+             _oContainer.addChild(oIdle);
              
+             _aSymbolsIdle[i] = oIdle;
+
              _aSymbols[i] = oSprite;
              
              iY += SYMBOL_SIZE;
@@ -99,6 +109,20 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
         _bUpdate = false;
         _bHold = bHold;
         _iContDelay = 0;
+    };
+
+    this.playIdleAnim = function(bIdle) {
+        for (var i = 0; i < _aSymbolsIdle.length; i++) {
+            
+            /*if(bIdle === true) {
+             _aSymbolsIdle[i].gotoAndPlay("idle");
+             //_aSymbolsIdle[i].alpha = 0;
+            } else {
+                _aSymbolsIdle[i].gotoAndStop("idle");
+            }*/
+        }
+       
+        
     };
 
     this.restart = function(aSymbols,bReadyToStop) {
@@ -224,7 +248,8 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
     };
 
     this._stop = function() {
-        // Implementar
+        // IMPLEMENTS
+
     }
 
     this.update = function(iCurIndexToStop) {

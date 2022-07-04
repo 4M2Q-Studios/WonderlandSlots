@@ -157,6 +157,7 @@ function CMain(oData){
         for(var i=1;i<NUM_SYMBOLS+1;i++){
             s_oSpriteLibrary.addSprite("symbol_"+i,"./sprites/symbol_"+i+".png");
             s_oSpriteLibrary.addSprite("symbol_"+i+"_anim","./sprites/symbol_"+i+"_anim.png");
+            s_oSpriteLibrary.addSprite("symbol_"+i+"_idle","./sprites/symbol_"+i+"_idle.png");
         }
         
         for(var j=1;j<NUM_PAYLINES+1;j++){

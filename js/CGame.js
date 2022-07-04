@@ -362,6 +362,8 @@ function CGame(oData){
             if (_iNumReelsStopped === (NUM_REELS*2) ) {
                 this._endReelAnimation();
             }
+
+            //console.log("STOPPED");
         }    
     };
     
@@ -394,6 +396,8 @@ function CGame(oData){
             _aMovingColumns[k+NUM_REELS].setHold(false);
             _aMovingColumns[k].setHoldActivated(false);
             _aMovingColumns[k+NUM_REELS].setHoldActivated(false);
+
+            _aMovingColumns[k+NUM_REELS].playIdleAnim(true);
         }
         
         _iNumIndexHold = 0;

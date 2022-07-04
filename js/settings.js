@@ -12,6 +12,7 @@ var FPS_TIME      = 1000/24;
 var DISABLE_SOUND_MOBILE = false;
 
 var FRAMERATE_SYMBOLS = 6; // Frames por segundo sibolos de reel
+var FRAMERATE_SYMBOLS_IDLE = 6; // Frames por segundo sibolos de reel
 var FRAMERATE_HATS = 20; // Animacion IDLE sombrero bonus
 var FRAMERATE_HAT_ANIM = 20; // Animacion sombrero seleccionado bonus
 

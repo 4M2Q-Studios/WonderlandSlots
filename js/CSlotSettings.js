@@ -5,6 +5,7 @@ function CSlotSettings() {
         this._initPaylines();
         this._initSymbolWin();
         this._initSymbolAnims();
+        this._initSymbolIdle();
         this._initSymbolsOccurence();
         this._initBonus();
     };
@@ -138,6 +139,111 @@ function CSlotSettings() {
 
         s_aSymbolAnims[9] = new createjs.SpriteSheet(oData);
     };
+
+    this._initSymbolIdle = function(){
+        s_aSymbolIdle = new Array();
+        
+        var oData = {   
+                        framerate: FRAMERATE_SYMBOLS_IDLE,
+                        images: [s_oSpriteLibrary.getSprite('symbol_1_idle')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
+                        animations: {  idle: [0,9] }
+        };
+
+        s_aSymbolIdle[0] = new createjs.SpriteSheet(oData);
+        
+        oData = {   
+                        framerate: FRAMERATE_SYMBOLS_IDLE,
+                        images: [s_oSpriteLibrary.getSprite('symbol_2_idle')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
+                        animations: {  idle: [0,9] }
+        };
+
+        s_aSymbolIdle[1] = new createjs.SpriteSheet(oData);
+        
+        oData = {   
+                        framerate: FRAMERATE_SYMBOLS_IDLE,
+                        images: [s_oSpriteLibrary.getSprite('symbol_3_idle')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
+                        animations: {  idle: [0,9] }
+        };
+
+        s_aSymbolIdle[2] = new createjs.SpriteSheet(oData);
+        
+        oData = {   
+                        framerate: FRAMERATE_SYMBOLS_IDLE,
+                        images: [s_oSpriteLibrary.getSprite('symbol_4_idle')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
+                        animations: {  idle: [0,9] }
+        };
+
+        s_aSymbolIdle[3] = new createjs.SpriteSheet(oData);
+        
+        oData = {   
+                        framerate: FRAMERATE_SYMBOLS_IDLE,
+                        images: [s_oSpriteLibrary.getSprite('symbol_5_idle')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
+                        animations: {  idle: [0,9] }
+        };
+
+        s_aSymbolIdle[4] = new createjs.SpriteSheet(oData);
+        
+        oData = {   
+                        framerate: FRAMERATE_SYMBOLS_IDLE,
+                        images: [s_oSpriteLibrary.getSprite('symbol_6_idle')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
+                        animations: {  idle: [0,9] }
+        };
+
+        s_aSymbolIdle[5] = new createjs.SpriteSheet(oData);
+        
+        oData = {   
+                        framerate: FRAMERATE_SYMBOLS_IDLE,
+                        images: [s_oSpriteLibrary.getSprite('symbol_7_idle')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
+                        animations: {  idle: [0,9] }
+        };
+
+        s_aSymbolIdle[6] = new createjs.SpriteSheet(oData);
+        
+        oData = {   
+                        framerate: FRAMERATE_SYMBOLS_IDLE,
+                        images: [s_oSpriteLibrary.getSprite('symbol_8_idle')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
+                        animations: {  idle: [0,9] }
+        };
+
+        s_aSymbolIdle[7] = new createjs.SpriteSheet(oData);
+        
+
+        oData = {   
+                        framerate: FRAMERATE_SYMBOLS_IDLE,
+                        images: [s_oSpriteLibrary.getSprite('symbol_9_idle')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
+                        animations: {  idle: [0,9] }
+        };
+
+        s_aSymbolIdle[8] = new createjs.SpriteSheet(oData);
+        
+        oData = {   
+                        framerate: FRAMERATE_SYMBOLS_IDLE,
+                        images: [s_oSpriteLibrary.getSprite('symbol_10_idle')], 
+                        // width, height & registration point of each sprite
+                        frames: {width: SYMBOL_SIZE, height: SYMBOL_SIZE, regX: 0, regY: 0, count:10}, 
+                        animations: {  idle: [0,9] }
+        };
+
+        s_aSymbolIdle[9] = new createjs.SpriteSheet(oData);
+    };
     
     this._initSymbolWin = function(){
         s_aSymbolWin = new Array();
@@ -235,5 +341,6 @@ var s_aSymbolData;
 var s_aPaylineCombo;
 var s_aSymbolWin;
 var s_aSymbolAnims;
+var s_aSymbolIdle;
 var s_aRandSymbols;
 var s_aAlienOccurence;
