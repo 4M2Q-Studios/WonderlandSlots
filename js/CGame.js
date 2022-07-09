@@ -716,9 +716,9 @@ function CGame(oData){
     };
     
     this.onSpin = function(){
-        console.log("_bFirstSpin "+_bFirstSpin)
+        /*console.log("_bFirstSpin "+_bFirstSpin)
         console.log("_iMoney "+_iMoney)
-        console.log("_iTotBet "+_iTotBet)
+        console.log("_iTotBet "+_iTotBet)*/
         if(_bFirstSpin && _iMoney<_iTotBet){
             _oRechargePanel.show();
             return;
@@ -785,6 +785,7 @@ function CGame(oData){
     
     this.onStop = function() {
         //_oInterface.showSpin();
+        console.log("Button stop pressed");
         for(var i=0;i<_aMovingColumns.length;i++){
             _aMovingColumns[i]._stop();
         }

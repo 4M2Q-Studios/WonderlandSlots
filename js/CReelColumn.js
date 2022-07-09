@@ -62,7 +62,7 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
              _oContainer.addChild(oSprite);
 
              var oIdle = new createjs.Sprite(s_aSymbolIdle[iRandSymbol], "idle");
-             oIdle.gotoAndPlay("idle");
+             //oIdle.play("idle");
              oIdle.x = iX;
              oIdle.y = iY;
              _oContainer.addChild(oIdle);
@@ -114,12 +114,12 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
     this.playIdleAnim = function(bIdle) {
         for (var i = 0; i < _aSymbolsIdle.length; i++) {
             
-            /*if(bIdle === true) {
+            if(bIdle === true) {
              _aSymbolsIdle[i].gotoAndPlay("idle");
              //_aSymbolsIdle[i].alpha = 0;
             } else {
-                _aSymbolsIdle[i].gotoAndStop("idle");
-            }*/
+                _aSymbolsIdle[i].stop();
+            }
         }
        
         
