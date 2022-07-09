@@ -30,6 +30,7 @@ var GAME_STATE_IDLE         = 0;
 var GAME_STATE_SPINNING     = 1;
 var GAME_STATE_SHOW_ALL_WIN = 2;
 var GAME_STATE_SHOW_WIN     = 3;
+var GAME_STATE_STOPPED      = 4;
 
 var REEL_STATE_START   = 0;
 var REEL_STATE_MOVING = 1;

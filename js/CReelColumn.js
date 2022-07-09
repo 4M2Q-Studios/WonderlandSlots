@@ -247,6 +247,28 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
         }
     };
 
+    this._updateInmediate = function(){
+
+        _bUpdate = false;
+        _iCntFrames = 0;
+        _iMaxFrames = MAX_FRAMES_REEL_EASE;
+        _iCurState = REEL_STATE_START;
+        _iContDelay = 0;
+        _bReadyToStop = false;
+
+        if(_bContainsFinalSymbols){
+            _bContainsFinalSymbols = false;
+            _oContainer.y = REEL_OFFSET_Y;
+            
+        }
+        s_oGame.stopNextReel();
+
+        var fLerpY = s_oTweenController.easeOutCubic( _iCntFrames, 0 ,1, _iMaxFrames);
+        var iValue = s_oTweenController.tweenValue( _iCurStartY, _iFinalY, fLerpY);
+        _oContainer.y = iValue;	
+
+    };
+
     this._stop = function() {
         // IMPLEMENTS
 

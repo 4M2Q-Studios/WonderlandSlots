@@ -786,9 +786,12 @@ function CGame(oData){
     this.onStop = function() {
         //_oInterface.showSpin();
         console.log("Button stop pressed");
-        for(var i=0;i<_aMovingColumns.length;i++){
-            _aMovingColumns[i]._stop();
-        }
+
+        _oInterface.showSpin();
+        _oInterface.enableSpin();
+        
+        _bFirstPlay = false;
+        _iCurState = GAME_STATE_STOPPED;
     }
 
     this._assignWin = function(){
@@ -899,6 +902,12 @@ function CGame(oData){
                     _iTimeElaps = 0;
 
                     this._showWin();
+                }
+                break;
+            }
+            case GAME_STATE_STOPPED:{
+                for(var i=0;i<_aMovingColumns.length;i++){
+                    _aMovingColumns[i]._updateInmediate();
                 }
                 break;
             }
