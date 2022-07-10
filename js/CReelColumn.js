@@ -227,7 +227,8 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
     
     this._updateStopping = function(){
         _iCntFrames++;
-        
+        var finalPosY;
+
         if ( _iCntFrames >= _iMaxFrames ){
             _bUpdate = false;
             _iCntFrames = 0;
@@ -242,10 +243,18 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
                 
             }
             s_oGame.stopNextReel();
+
+            finalPosY = _iCurStartY + (SYMBOL_SIZE * NUM_ROWS);
+            createjs.Tween.get(_oContainer).to({y:finalPosY - 10}, _iFinalY, createjs.Ease.bounceOut);
+            
         }else{
             var fLerpY = s_oTweenController.easeOutCubic( _iCntFrames, 0 ,1, _iMaxFrames);
             var iValue = s_oTweenController.tweenValue( _iCurStartY, _iFinalY, fLerpY);
-            _oContainer.y = iValue;	
+            _oContainer.y = iValue;
+
+            //createjs.Tween.get(_oContainer).to({y:_iCurStartY}, _iFinalY, createjs.Ease.bounceOut);
+            
+
         }
     };
 

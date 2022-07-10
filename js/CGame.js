@@ -453,8 +453,6 @@ function CGame(oData){
             }
             _iCurState = GAME_STATE_IDLE;
         }
-        
-        
 
         _iNumSpinCont++;
         if(_iNumSpinCont === _iAdsShowingCont){
