@@ -17,6 +17,7 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
     var _aSymbolsIdle;
     var _oContainer;
     var _bPaying;
+    var _stopped;
     
     this._init = function(iIndex,iXPos,iYPos,iDelay){
         _bUpdate = false;
@@ -27,6 +28,7 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
         _iIndex = iIndex;
         _iDelay = iDelay;
         _bPaying = false;
+        _stopped = true;
         
         if(_iIndex < NUM_REELS){
             _iCol = _iIndex;
@@ -247,7 +249,7 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
         }
     };
 
-    this._updateInmediate = function(){
+    this._stopInmediate = function(){
 
         _bUpdate = false;
         _iCntFrames = 0;
@@ -261,11 +263,15 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
             _oContainer.y = REEL_OFFSET_Y;
             
         }
+        
         s_oGame.stopNextReel();
 
-        var fLerpY = s_oTweenController.easeOutCubic( _iCntFrames, 0 ,1, _iMaxFrames);
-        var iValue = s_oTweenController.tweenValue( _iCurStartY, _iFinalY, fLerpY);
-        _oContainer.y = iValue;	
+        if(_stopped === false) {
+            var fLerpY = s_oTweenController.easeOutCubic( _iCntFrames, 0 ,1, _iMaxFrames);
+            var iValue = s_oTweenController.tweenValue( _iCurStartY, _iFinalY, fLerpY);
+            _oContainer.y = iValue;	
+        }
+
 
     };
 
@@ -302,14 +308,17 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
             switch(_iCurState) {
                 case REEL_STATE_START: {
                     this._updateStart();
+                    _stopped = false;
                     break;
                 }
                 case REEL_STATE_MOVING: {
                     this._updateMoving();
+                    _stopped = false;
                     break;
                 }
                 case REEL_STATE_STOP: {
                     this._updateStopping();
+                    _stopped = true;
                     break;
                 }
             }

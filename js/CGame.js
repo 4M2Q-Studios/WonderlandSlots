@@ -136,7 +136,7 @@ function CGame(oData){
             iXPos += SYMBOL_SIZE + SPACE_BETWEEN_SYMBOLS;
             iCurDelay += REEL_DELAY;
         }
-        
+       
     };
     
     this._initStaticSymbols = function(){
@@ -777,7 +777,7 @@ function CGame(oData){
 
         _oInterface.hideAllLines();
         _oInterface.disableGuiButtons();
-        _oInterface.hideSpin();
+        createjs.Tween.get(this).wait(500).call(function() {_oInterface.hideSpin();});
         
         _bFirstPlay = false;
         _iCurState = GAME_STATE_SPINNING;
@@ -787,9 +787,12 @@ function CGame(oData){
         //_oInterface.showSpin();
         console.log("Button stop pressed");
 
+        _iCurReelLoops = 0;
+        _iNumReelsStopped = 0;
+        _iNextColToStop = _aReelSequence[0];
+
         _oInterface.showSpin();
-        _oInterface.enableSpin();
-        
+
         _bFirstPlay = false;
         _iCurState = GAME_STATE_STOPPED;
     }
@@ -907,7 +910,7 @@ function CGame(oData){
             }
             case GAME_STATE_STOPPED:{
                 for(var i=0;i<_aMovingColumns.length;i++){
-                    _aMovingColumns[i]._updateInmediate();
+                    _aMovingColumns[i]._stopInmediate();
                 }
                 break;
             }
