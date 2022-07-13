@@ -46,6 +46,8 @@ var ON_DRAG_END   = 5;
 var REEL_OFFSET_X = 380;
 var REEL_OFFSET_Y = 123;
 
+var REEL_BOUNCE_OUT = 35;
+
 var NUM_REELS = 5;
 var NUM_ROWS = 3;
 var NUM_SYMBOLS = 10;
