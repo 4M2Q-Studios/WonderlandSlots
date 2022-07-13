@@ -33,6 +33,8 @@ function CSlotSettings() {
         s_aPaylineCombo[2] = [{row:2,col:0},{row:2,col:1},{row:2,col:2},{row:2,col:3},{row:2,col:4}];
         s_aPaylineCombo[3] = [{row:0,col:0},{row:1,col:1},{row:2,col:2},{row:1,col:3},{row:0,col:4}];
         s_aPaylineCombo[4] = [{row:2,col:0},{row:1,col:1},{row:0,col:2},{row:1,col:3},{row:2,col:4}];
+
+        this._initPaylinesAnims();
     };
 
     this._initSymbolAnims = function(){
@@ -244,6 +246,61 @@ function CSlotSettings() {
 
         s_aSymbolIdle[9] = new createjs.SpriteSheet(oData);
     };
+
+    this._initPaylinesAnims = function(){
+        s_aPaylinesAnims = new Array();
+        
+        var oData = {   
+            framerate: FRAMERATE_PAYLINES,
+            images: [s_oSpriteLibrary.getSprite("payline_1_anim")], 
+            // width, height & registration point of each sprite
+            frames: {width: 1024, height: 768, regX: 0, regY: 0}, 
+            animations: {  idle: [0,14] }
+        };
+
+        s_aPaylinesAnims[0] = new createjs.SpriteSheet(oData);
+
+        var oData = {   
+            framerate: FRAMERATE_PAYLINES,
+            images: [s_oSpriteLibrary.getSprite("payline_2_anim")], 
+            // width, height & registration point of each sprite
+            frames: {width: 1024, height: 768, regX: 0, regY: 0}, 
+            animations: {  idle: [0,14] }
+        };
+
+        s_aPaylinesAnims[1] = new createjs.SpriteSheet(oData);
+
+        var oData = {   
+            framerate: FRAMERATE_PAYLINES,
+            images: [s_oSpriteLibrary.getSprite("payline_3_anim")], 
+            // width, height & registration point of each sprite
+            frames: {width: 1024, height: 768, regX: 0, regY: 0}, 
+            animations: {  idle: [0,14] }
+        };
+
+        s_aPaylinesAnims[2] = new createjs.SpriteSheet(oData);
+
+        var oData = {   
+            framerate: FRAMERATE_PAYLINES,
+            images: [s_oSpriteLibrary.getSprite("payline_4_anim")], 
+            // width, height & registration point of each sprite
+            frames: {width: 1024, height: 768, regX: 0, regY: 0}, 
+            animations: {  idle: [0,14] }
+        };
+
+        s_aPaylinesAnims[3] = new createjs.SpriteSheet(oData);
+
+        var oData = {   
+            framerate: FRAMERATE_PAYLINES,
+            images: [s_oSpriteLibrary.getSprite("payline_5_anim")], 
+            // width, height & registration point of each sprite
+            frames: {width: 1024, height: 768, regX: 0, regY: 0}, 
+            animations: {  idle: [0,14] }
+        };
+
+        s_aPaylinesAnims[4] = new createjs.SpriteSheet(oData);      
+      
+    };
     
     this._initSymbolWin = function(){
         s_aSymbolWin = new Array();
@@ -341,6 +398,7 @@ var s_aSymbolData;
 var s_aPaylineCombo;
 var s_aSymbolWin;
 var s_aSymbolAnims;
+var s_aPaylinesAnims;
 var s_aSymbolIdle;
 var s_aRandSymbols;
 var s_aAlienOccurence;

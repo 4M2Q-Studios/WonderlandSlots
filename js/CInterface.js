@@ -162,7 +162,7 @@ function CInterface(iCurBet,iTotBet,iMoney){
 
         _aPayline = new Array();
         for(var k = 0;k<NUM_PAYLINES;k++){
-            var oBmp = new createjs.Bitmap(s_oSpriteLibrary.getSprite('payline_'+(k+1) ));
+            var oBmp = new createjs.Sprite(s_aPaylinesAnims[k], "idle");
             oBmp.x = 238;
             oBmp.y = -40;
             oBmp.visible = false;

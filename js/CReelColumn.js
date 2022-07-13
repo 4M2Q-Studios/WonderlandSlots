@@ -55,7 +55,7 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
         _aSymbols = new Array();
         _aSymbolsIdle = new Array();
         for(var i=0;i<NUM_ROWS;i++){
-            var iRandIndex = Math.floor(Math.random()* s_aRandSymbols.length);
+            var iRandIndex = Math.floor(Math.random() * (s_aRandSymbols.length - 1));
              var iRandSymbol = s_aRandSymbols[iRandIndex];
              var oSprite = createSprite(s_aSymbolData[iRandSymbol], "static",0,0,SYMBOL_SIZE,SYMBOL_SIZE);
              oSprite.stop();
@@ -63,8 +63,9 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
              oSprite.y = iY;
              _oContainer.addChild(oSprite);
 
-            
+             //console.log(iRandSymbol);
              var oIdle = new createjs.Sprite(s_aSymbolIdle[iRandSymbol], "idle");
+             
              //oIdle.play("idle");
              oIdle.x = iX;
              oIdle.y = iY;

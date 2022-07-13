@@ -15,6 +15,7 @@ var FRAMERATE_SYMBOLS = 6; // Frames por segundo sibolos de reel
 var FRAMERATE_SYMBOLS_IDLE = 6; // Frames por segundo sibolos de reel
 var FRAMERATE_HATS = 20; // Animacion IDLE sombrero bonus
 var FRAMERATE_HAT_ANIM = 20; // Animacion sombrero seleccionado bonus
+var FRAMERATE_PAYLINES = 20; // Lineas de pago
 
 var SHISHA_X = CANVAS_WIDTH - 315;
 var SHISHA_Y = CANVAS_HEIGHT - 542;

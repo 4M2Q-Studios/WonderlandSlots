@@ -162,6 +162,7 @@ function CMain(oData){
         
         for(var j=1;j<NUM_PAYLINES+1;j++){
             s_oSpriteLibrary.addSprite("payline_"+j,"./sprites/payline_"+j+".png");
+            s_oSpriteLibrary.addSprite("payline_"+j+"_anim","./sprites/payline_"+j+"_anim.png");
         }
         
         RESOURCE_TO_LOAD += s_oSpriteLibrary.getNumSprites();
