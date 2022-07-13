@@ -172,9 +172,9 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
         _bPaying = bPaying;
         for (var i = 0; i < NUM_ROWS; i++) {
             if(_bPaying) {
-                _aSymbols[i].alpha = .2;
+                createjs.Tween.get(_aSymbols[i]).wait(100).to({alpha:.2}, 1000);
             } else {
-                _aSymbols[i].alpha = 1;
+                createjs.Tween.get(_aSymbols[i]).wait(100).to({alpha:1}, 1000);
             }
         }
         
@@ -188,9 +188,10 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
         for (var i = 0; i < NUM_ROWS; i++) {
             if(bHold) {
                 _aSymbols[i].gotoAndStop("hold");
-                _aSymbols[i].alpha = 1;
+                createjs.Tween.get(_aSymbols[i]).wait(100).to({alpha:1}, 1000);
             } else {
-                _aSymbols[i].gotoAndStop("static");             
+                _aSymbols[i].gotoAndStop("static");
+                //createjs.Tween.get(_aSymbols[i]).wait(100).to({alpha:1}, 1000);
             }
         }
     }
@@ -251,7 +252,7 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
             createjs.Tween.get(_oContainer).to({y:finalPosY + REEL_BOUNCE_OUT}, finalPosY, createjs.Ease.elasticOut);
 
             createjs.Tween.get(this).wait(100).call(function() {
-                createjs.Tween.get(_oContainer).to({y:finalPosY}, finalPosY + REEL_BOUNCE_OUT, createjs.Ease.elasticInOut);;
+                createjs.Tween.get(_oContainer).to({y:finalPosY}, finalPosY + REEL_BOUNCE_OUT, createjs.Ease.elasticInOut);
             });
             
             

@@ -130,7 +130,7 @@ function CInterface(iCurBet,iTotBet,iMoney){
                     false);
         
         _oPayText = new CPayText(CANVAS_WIDTH/2 - 200, CANVAS_HEIGHT - 160, "1.05", .8, s_oStage);//iXPos,iYPos,szText,iFontSize,oParentContainer
-        //_oPayText.setVisible(true);
+        _oPayText.setVisible(false);
 
         oSprite = s_oSpriteLibrary.getSprite('bet_but');
         _aLinesBut = new Array();
