@@ -251,11 +251,10 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
 
             finalPosY = _iCurStartY + (SYMBOL_SIZE * NUM_ROWS);
             createjs.Tween.get(_oContainer)
-            .to({y:finalPosY - REEL_BOUNCE_OUT / 3}, finalPosY, createjs.Ease.bouceOut)
-            .to({y:finalPosY + REEL_BOUNCE_OUT / 2}, finalPosY, createjs.Ease.bouceOut)
-            .to({y:finalPosY + REEL_BOUNCE_OUT}, finalPosY)
+            .to({y:finalPosY + REEL_BOUNCE_OUT}, finalPosY, createjs.Ease.bouceOut)
             .to({y:finalPosY - REEL_BOUNCE_OUT / 2}, finalPosY, createjs.Ease.bouceOut)
-            .to({y:finalPosY + REEL_BOUNCE_OUT / 3}, finalPosY, createjs.Ease.bouceOut)
+            .to({y:finalPosY + REEL_BOUNCE_OUT / 4}, finalPosY, createjs.Ease.bouceOut)
+            .to({y:finalPosY - REEL_BOUNCE_OUT / 8}, finalPosY, createjs.Ease.bouceOut)
             .to({y:finalPosY}, finalPosY, createjs.Ease.bouceOut);
 
             /*createjs.Tween.get(this).wait(100).call(function() {
