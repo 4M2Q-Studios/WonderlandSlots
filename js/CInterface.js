@@ -246,7 +246,7 @@ function CInterface(iCurBet,iTotBet,iMoney){
         
         setTimeout(function(){for(var i=0;i<NUM_PAYLINES;i++){
             _aPayline[i].visible = false;
-        }},1000);
+        }},500);
     };
     
     this.resetWin = function(){

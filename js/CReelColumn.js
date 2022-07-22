@@ -251,18 +251,12 @@ function CReelColumn(iIndex,iXPos,iYPos,iDelay){
 
             finalPosY = _iCurStartY + (SYMBOL_SIZE * NUM_ROWS);
             createjs.Tween.get(_oContainer)
-            .to({y:finalPosY + REEL_BOUNCE_OUT}, finalPosY, createjs.Ease.bouceOut)
-            .to({y:finalPosY - REEL_BOUNCE_OUT / 2}, finalPosY, createjs.Ease.bouceOut)
-            .to({y:finalPosY + REEL_BOUNCE_OUT / 4}, finalPosY, createjs.Ease.bouceOut)
-            .to({y:finalPosY - REEL_BOUNCE_OUT / 8}, finalPosY, createjs.Ease.bouceOut)
-            .to({y:finalPosY}, finalPosY, createjs.Ease.bouceOut);
+            .to({y:finalPosY + REEL_BOUNCE_OUT}, 150, createjs.Ease.bouceOut)
+            .to({y:finalPosY - REEL_BOUNCE_OUT / 2}, 150, createjs.Ease.bouceOut)
+            .to({y:finalPosY + REEL_BOUNCE_OUT / 4}, 150, createjs.Ease.bouceOut)
+            .to({y:finalPosY - REEL_BOUNCE_OUT / 8}, 150, createjs.Ease.bouceOut)
+            .to({y:finalPosY}, 150, createjs.Ease.bouceOut);
 
-            /*createjs.Tween.get(this).wait(100).call(function() {
-                createjs.Tween.get(_oContainer).to({y:finalPosY}, finalPosY + REEL_BOUNCE_OUT - 25, createjs.Ease.bouceIn);
-            });*/
-
-            
-            
         }else{
             var fLerpY = s_oTweenController.easeOutCubic( _iCntFrames, 0 ,1, _iMaxFrames);
             var iValue = s_oTweenController.tweenValue( _iCurStartY, _iFinalY, fLerpY);
